@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G'rahak - Student-Led Influencer Marketing Platform</title>
+    <meta name="description" content="Transform your brand with authentic influencer partnerships. Connect with verified creators who align perfectly with your brand values. Founded by VNIT Nagpur students.">
+    <meta name="keywords" content="influencer marketing, student startup, VNIT Nagpur, brand partnerships, social media marketing">
+    <meta name="author" content="Karanam Gnanesh Chowdary, Ravindra Dubey">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2'><path d='m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z'/></svg>" type="image/svg+xml">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="G'rahak - Student-Led Influencer Marketing Platform">
+    <meta property="og:description" content="Transform your brand with authentic influencer partnerships. Connect with verified creators who align perfectly with your brand values.">
+    <meta property="og:image" content="/placeholder.svg?height=600&width=1200">
+    <meta property="og:url" content="https://grahak.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="G'rahak">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="G'rahak - Student-Led Influencer Marketing Platform">
+    <meta name="twitter:description" content="Transform your brand with authentic influencer partnerships. Connect with verified creators.">
+    <meta name="twitter:image" content="/placeholder.svg?height=600&width=1200">
+    
+    <style>
+        /* Enhanced Base Styles */
+        :root {
+            --primary-blue: #3b82f6;
+            --primary-purple: #8b5cf6;
+            --primary-green: #10b981;
+            --primary-pink: #ec4899;
+            --primary-yellow: #fbbf24;
+            --primary-cyan: #06b6d4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background: #f8fafc;
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Ultra Cool Loading Screen */
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: 9999;
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        
+        .loading-container.hidden {
+            opacity: 0;
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+        
+        /* Animated Background with Geometric Shapes */
+        .loading-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .geometric-shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: floatGeometric 8s ease-in-out infinite;
+        }
+        
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #10b981, #3b82f6);
+            border-radius: 20px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            transform: rotate(45deg);
+        }
+        
+        .shape-2 {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ec4899, #8b5cf6);
+            border-radius: 50%;
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+        
+        .shape-3 {
+            width: 120px;
+            height: 60px;
+            background: linear-gradient(45deg, #f59e0b, #ec4899);
+            border-radius: 30px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 2s;
+            transform: rotate(-30deg);
+        }
+        
+        .shape-4 {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            bottom: 30%;
+            right: 20%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes floatGeometric {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1); 
+                opacity: 0.1; 
+            }
+            25% { 
+                transform: translateY(-20px) rotate(90deg) scale(1.1); 
+                opacity: 0.2; 
+            }
+            50% { 
+                transform: translateY(-10px) rotate(180deg) scale(0.9); 
+                opacity: 0.15; 
+            }
+            75% { 
+                transform: translateY(-30px) rotate(270deg) scale(1.05); 
+                opacity: 0.25; 
+            }
+        }
+        
+        /* Floating Particles System */
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: particleFloat 6s linear infinite;
+        }
+        
+        .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 3s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 4s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-delay: 5s; }
+        .particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: 0.5s; }
+        .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: 1.5s; }
+        .particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: 2.5s; }
+        .particle:nth-child(10) { width: 6px; height: 6px; left: 15%; animation-delay: 3.5s; }
+        
+        @keyframes particleFloat {
+            0% { 
+                transform: translateY(100vh) rotate(0deg); 
+                opacity: 0; 
+            }
+            10% { 
+                opacity: 1; 
+            }
+            90% { 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(-100px) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Enhanced Logo Container with 3D Effects */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 50px;
+            z-index: 10;
+            position: relative;
+            animation: logoEntrance 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes logoEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(100px) scale(0.5) rotateY(180deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(20px) scale(0.8) rotateY(90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateY(0deg);
+            }
+        }
+        
+        .logo-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6, #ec4899);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+                0 0 100px rgba(59, 130, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: logoFloat 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotateX(0deg) rotateY(0deg); 
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 100px rgba(59, 130, 246, 0.3);
+            }
+            25% { 
+                transform: translateY(-15px) rotateX(5deg) rotateY(5deg); 
+                box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4), 0 0 120px rgba(16, 185, 129, 0.4);
+            }
+            50% { 
+                transform: translateY(-8px) rotateX(0deg) rotateY(10deg); 
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35), 0 0 110px rgba(139, 92, 246, 0.4);
+            }
+            75% { 
+                transform: translateY(-20px) rotateX(-5deg) rotateY(5deg); 
+                box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45), 0 0 130px rgba(236, 72, 153, 0.4);
+            }
+        }
+        
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.6) 50%, 
+                transparent 70%
+            );
+            transform: rotate(45deg);
+            animation: logoShine 4s ease-in-out infinite;
+        }
+        
+        @keyframes logoShine {
+            0%, 100% { 
+                transform: translateX(-200%) translateY(-200%) rotate(45deg); 
+            }
+            50% { 
+                transform: translateX(200%) translateY(200%) rotate(45deg); 
+            }
+        }
+        
+        .logo-text {
+            font-size: 56px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff, #f1f5f9, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: textGlow 3s ease-in-out infinite alternate;
+            position: relative;
+        }
+        
+        @keyframes textGlow {
+            0% { 
+                filter: brightness(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); 
+                transform: scale(1);
+            }
+            100% { 
+                filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); 
+                transform: scale(1.02);
+            }
+        }
+        
+        /* Advanced Multi-Ring Loading Spinner */
+        .loading-spinner-container {
+            position: relative;
+            margin-bottom: 40px;
+            width: 120px;
+            height: 120px;
+        }
+        
+        .spinner-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        
+        .ring-1 {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #10b981;
+            animation: spinRing1 2s linear infinite;
+        }
+        
+        .ring-2 {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-right-color: #3b82f6;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            animation: spinRing2 1.5s linear infinite reverse;
+        }
+        
+        .ring-3 {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-bottom-color: #8b5cf6;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            animation: spinRing3 1s linear infinite;
+        }
+        
+        .ring-4 {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #ec4899;
+            width: 40%;
+            height: 40%;
+            top: 30%;
+            left: 30%;
+            animation: spinRing4 0.8s linear infinite reverse;
+        }
+        
+        @keyframes spinRing1 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spinRing2 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spinRing3 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spinRing4 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* Enhanced Progress System */
+        .progress-container {
+            width: 400px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) inset;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+            border-radius: 4px;
+            width: 0%;
+            animation: progressFill 4s ease-out forwards;
+            position: relative;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.6), 
+                transparent
+            );
+            animation: progressShine 2s ease-in-out infinite;
+        }
+        
+        @keyframes progressFill {
+            0% { width: 0%; }
+            25% { width: 25%; }
+            50% { width: 60%; }
+            75% { width: 85%; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Dynamic Loading Text */
+        .loading-text {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 700;
+            animation: textPulse 2s ease-in-out infinite;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes textPulse {
+            0%, 100% { 
+                opacity: 0.8; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.05);
+            }
+        }
+        
+        .loading-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            animation: subtitleFade 3s ease-in-out infinite;
+        }
+        
+        @keyframes subtitleFade {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.9; }
+        }
+        
+        /* Enhanced Header Navigation - Matching Your Design */
+        .header-bg {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(248, 250, 252, 0.98) 50%,
+                rgba(241, 245, 249, 0.95) 100%
+            );
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.08),
+                0 1px 0 rgba(255, 255, 255, 0.9) inset,
+                0 -1px 0 rgba(59, 130, 246, 0.05) inset;
+            position: relative;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon-small {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .logo-text-small {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .nav-item {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-item:hover {
+            color: #3b82f6;
+        }
+        
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-item:hover::after {
+            width: 100%;
+        }
+        
+        .header-cta {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(16, 185, 129, 0.4);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #64748b;
+            cursor: pointer;
+        }
+        
+        /* Main Content - Matching Your Blue Background Design */
+        .main-content {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: contentFadeIn 1.5s ease-out 0.5s forwards;
+        }
+        
+        @keyframes contentFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+        }
+        
+        .hero-content {
+            animation: slideInLeft 1.2s ease-out 0.7s both;
+        }
+        
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Main Title - Matching "Let's connect" Style */
+        .hero-title {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            color: white;
+        }
+        
+        .hero-title .connect-text {
+            color: #fbbf24;
+            position: relative;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            margin-bottom: 48px;
+            max-width: 500px;
+        }
+        
+        /* CTA Buttons - Matching Your Design */
+        .hero-buttons {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        
+        .btn-primary-hero {
+            background: #1f2937;
+            color: white;
+            padding: 18px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-primary-hero:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .btn-secondary-hero {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            padding: 16px 34px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary-hero:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Image Section */
+        .hero-image {
+            position: relative;
+            animation: slideInRight 1.2s ease-out 0.9s both;
+        }
+        
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(80px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .hero-mockup {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0.05) 50%, 
+                rgba(255, 255, 255, 0.1) 100%
+            );
+        }
+        
+        /* Floating Cards - Matching Your Design */
+        .floating-card {
+            position: absolute;
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            animation: float 6s ease-in-out infinite;
+            z-index: 10;
+        }
+        
+        .floating-card-1 {
+            top: 20%;
+            right: -10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-card-2 {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            25% { 
+                transform: translateY(-10px) rotate(1deg); 
+            }
+            50% { 
+                transform: translateY(-5px) rotate(0deg); 
+            }
+            75% { 
+                transform: translateY(-15px) rotate(-1deg); 
+            }
+        }
+        
+        .floating-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .card-icon-purple {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+        
+        .card-icon-green {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .floating-card-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        
+        .floating-card-content p {
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: left;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 60px 20px;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .floating-card {
+                display: none;
+            }
+            
+            .stats-section {
+                justify-content: center;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .btn-primary-hero,
+            .btn-secondary-hero {
+                padding: 16px 28px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ultra Cool Loading Screen -->
+    <div class="loading-container" id="loading">
+        <!-- Animated Background -->
+        <div class="loading-bg">
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+            <div class="geometric-shape shape-4"></div>
+        </div>
+        
+        <!-- Floating Particles -->
+        <div class="particles-container">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <!-- Enhanced Logo -->
+        <div class="logo-container">
+            <div class="logo-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white;">
+                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                    <path d="M5 3v4"/>
+                    <path d="M3 5h4"/>
+                    <path d="M19 17v4"/>
+                    <path d="M17 19h4"/>
+                </svg>
+            </div>
+            <div class="logo-text">G'rahak</div>
+        </div>
+        
+        <!-- Advanced Multi-Ring Spinner -->
+        <div class="loading-spinner-container">
+            <div class="spinner-ring ring-1"></div>
+            <div class="spinner-ring ring-2"></div>
+            <div class="spinner-ring ring-3"></div>
+            <div class="spinner-ring ring-4"></div>
+        </div>
+        
+        <!-- Enhanced Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <!-- Dynamic Loading Text -->
+        <div class="loading-text" id="loadingText">Initializing G'rahak Platform...</div>
+        <div class="loading-subtitle" id="loadingSubtitle">Connecting with verified creators</div>
+    </div>
+
+    <!-- Header Navigation - Matching Your Design -->
+    <nav class="header-bg">
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="logo-icon-small">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white;">
+                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                    </svg>
+                </div>
+                <div class="logo-text-small">G'rahak</div>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="javascript:void(0)" onclick="navigateToSection('home')" class="nav-item">Home</a>
+                <a href="javascript:void(0)" onclick="navigateToSection('services')" class="nav-item">Services</a>
+                <a href="javascript:void(0)" onclick="navigateToSection('about')" class="nav-item">About</a>
+                <a href="javascript:void(0)" onclick="navigateToSection('case-studies')" class="nav-item">Case Studies</a>
+                <a href="javascript:void(0)" onclick="navigateToSection('our-influencers')" class="nav-item">Our Influencers</a>
+                <a href="javascript:void(0)" onclick="navigateToSection('founders')" class="nav-item">Founders</a>
+                <a href="javascript:void(0)" onclick="navigateToSection('contact')" class="nav-item">Contact</a>
+            </div>
+            
+            <a href="javascript:void(0)" onclick="navigateToApp()" class="header-cta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+                Get Started
+            </a>
+            
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Main Content - Matching Your Blue Background Design -->
+    <div class="main-content">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Let's <span class="connect-text">connect</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Transform your brand with authentic influencer partnerships. Connect with verified creators and achieve extraordinary results that drive real business growth.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="javascript:void(0)" onclick="navigateToApp()" class="btn-primary-hero">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                            <polyline points="10,17 15,12 10,7"/>
+                            <line x1="15" x2="3" y1="12" y2="12"/>
+                        </svg>
+                        Start Your Journey
+                    </a>
+                    <a href="javascript:void(0)" onclick="navigateToApp()" class="btn-secondary-hero">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        View Our Work
+                    </a>
+                </div>
+                
+                <div class="stats-section">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Active Influencers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100K+</div>
+                        <div class="stat-label">Total Reach</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="hero-mockup">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2"/>
+                        <path d="M9 9h6v6H9z"/>
+                        <path d="m9 1 3 3 3-3"/>
+                    </svg>
+                </div>
+                
+                <!-- Floating Cards - Matching Your Design -->
+                <div class="floating-card floating-card-1">
+                    <div class="floating-card-icon card-icon-purple">💜</div>
+                    <div class="floating-card-content">
+                        <h4>Student Innovation</h4>
+                        <p>Fresh perspectives</p>
+                    </div>
+                </div>
+                
+                <div class="floating-card floating-card-2">
+                    <div class="floating-card-icon card-icon-green">🚀</div>
+                    <div class="floating-card-content">
+                        <h4>Growing Fast</h4>
+                        <p>+200% monthly growth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced loading system with dynamic messages
+        let isLoading = false;
+        const loadingMessages = [
+            "Initializing G'rahak Platform...",
+            "Connecting with verified creators...",
+            "Loading brand partnerships...",
+            "Preparing amazing experiences...",
+            "Almost ready to launch..."
+        ];
+        
+        const loadingSubtitles = [
+            "Connecting with verified creators",
+            "Building authentic partnerships",
+            "Preparing your dashboard",
+            "Loading success stories",
+            "Ready to transform your brand"
+        ];
+        
+        let messageIndex = 0;
+        let messageInterval;
+        
+        function updateLoadingMessage() {
+            const textElement = document.getElementById('loadingText');
+            const subtitleElement = document.getElementById('loadingSubtitle');
+            
+            if (textElement && subtitleElement) {
+                textElement.textContent = loadingMessages[messageIndex];
+                subtitleElement.textContent = loadingSubtitles[messageIndex];
+                messageIndex = (messageIndex + 1) % loadingMessages.length;
+            }
+        }
+        
+        function showLoader() {
+            if (isLoading) return;
+            isLoading = true;
+            const loader = document.getElementById('loading');
+            loader.classList.remove('hidden');
+            
+            // Start dynamic message updates
+            messageIndex = 0;
+            updateLoadingMessage();
+            messageInterval = setInterval(updateLoadingMessage, 800);
+        }
+        
+        function hideLoader() {
+            setTimeout(() => {
+                const loader = document.getElementById('loading');
+                loader.classList.add('hidden');
+                isLoading = false;
+                
+                // Clear message interval
+                if (messageInterval) {
+                    clearInterval(messageInterval);
+                }
+            }, 3000);
+        }
+        
+        function navigateToApp() {
+            showLoader();
+            setTimeout(() => {
+                // Navigate to the main Next.js page
+                window.location.href = './app/page';
+            }, 3500);
+        }
+        
+        function navigateToSection(section) {
+            showLoader();
+            setTimeout(() => {
+                // Navigate to the main page with hash
+                window.location.href = `./app/page#${section}`;
+            }, 3500);
+        }
+        
+        // Initialize page
+        window.addEventListener('DOMContentLoaded', () => {
+            // Auto-hide loader after initial load
+            hideLoader();
+            
+            // Handle hash navigation on page load
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#')) {
+                const section = hash.substring(1);
+                setTimeout(() => {
+                    navigateToSection(section);
+                }, 4000);
+            }
+        });
+    </script>
+</body>
+</html>
